@@ -2,7 +2,6 @@ package com.globant.base;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
-import org.openqa.selenium.remote.http.HttpClient;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 
@@ -19,7 +18,7 @@ public class MobileBaseTest {
     }
 
     private AndroidDriver createAndroidDriver(String deviceName, String appLocation, String appiumUrl) {
-        URL url = null;
+        URL url;
         try {
             url = new URL(appiumUrl);
             UiAutomator2Options options = new UiAutomator2Options()
@@ -28,8 +27,8 @@ public class MobileBaseTest {
                     .setAutomationName("UiAutomator2")
                     .setDeviceName(deviceName)
                     .setApp(appLocation)
-                    .setAppActivity("com.wdiodemoap.MainActivity");
-            return new AndroidDriver(HttpClient.Factory.create(appiumUrl), options);
+                    .setAppActivity("com.wdiodemoapp.MainActivity");
+            return new AndroidDriver(url, options);
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
