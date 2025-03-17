@@ -2,6 +2,7 @@ package com.globant.base;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 
@@ -12,12 +13,18 @@ public class MobileBaseTest {
     protected static AndroidDriver driver;
 
     @BeforeMethod
-    @Parameters({"deviceName", "appLocation", "appiumUrl"})
-    public void setUp(String deviceName, String appLocation, String appiumUrl) {
-        driver = createAndroidDriver(deviceName, appLocation, appiumUrl);
+    @Parameters({"deviceName", "appiumUrl"})
+    public void setUp(String deviceName, String appiumUrl) {
+        driver = createAndroidDriver(deviceName, appiumUrl);
     }
 
-    private AndroidDriver createAndroidDriver(String deviceName, String appLocation, String appiumUrl) {
+    @AfterMethod
+    public void tearDown() {
+        if (driver != null)
+            driver.quit();
+    }
+
+    private AndroidDriver createAndroidDriver(String deviceName, String appiumUrl) {
         URL url;
         try {
             url = new URL(appiumUrl);
@@ -26,7 +33,7 @@ public class MobileBaseTest {
                     .setPlatformVersion("15")
                     .setAutomationName("UiAutomator2")
                     .setDeviceName(deviceName)
-                    .setApp(appLocation)
+                    .setAppPackage("com.wdiodemoapp")
                     .setAppActivity("com.wdiodemoapp.MainActivity");
             return new AndroidDriver(url, options);
         } catch (MalformedURLException e) {
