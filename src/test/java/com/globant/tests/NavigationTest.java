@@ -15,7 +15,7 @@ public class NavigationTest extends MobileBaseTest {
         Navbar navbar = new Navbar(driver);
 
         HomeScreen homeScreen = navbar.goToHome();
-        Assert.assertTrue(homeScreen.areAllElementsVisible(5));
+        Assert.assertTrue(homeScreen.areAllElementsVisible());
 
         WebViewScreen webViewScreen = navbar.goToWebView();
         Assert.assertTrue(webViewScreen.isLoading());
@@ -25,7 +25,6 @@ public class NavigationTest extends MobileBaseTest {
         Assert.assertTrue(loginScreen.isLoginFormVisible());
         loginScreen.goToSignUpForm();
         Assert.assertTrue(loginScreen.isSignUpFormVisible());
-
     }
 
 }

@@ -21,7 +21,7 @@ public class WebViewScreen extends MobileBaseScreen {
     }
 
     public boolean isContainerScrollable() {
-        waitForElementVisibility(webContainer, 5);
+        waitForElementVisibility(webContainer);
         return Boolean.parseBoolean(webContainer.getDomAttribute("scrollable"));
     }
 }

@@ -35,11 +35,11 @@ public class LoginScreen extends MobileBaseScreen {
     private WebElement btnSignUp;
 
     public boolean isLoginFormVisible() {
-        return isVisible(btnLoginForm, 10)
-                && isVisible(btnSignUpForm, 10)
-                && isVisible(fldEmail, 10)
-                && isVisible(fldPassword, 10)
-                && isVisible(btnLogin, 10)
+        return isVisible(btnLoginForm)
+                && isVisible(btnSignUpForm)
+                && isVisible(fldEmail)
+                && isVisible(fldPassword)
+                && isVisible(btnLogin)
                 && !isVisible(fldRepeatPassword, 1);
     }
 
@@ -48,11 +48,11 @@ public class LoginScreen extends MobileBaseScreen {
     }
 
     public boolean isSignUpFormVisible() {
-        return isVisible(btnLoginForm, 10)
-                && isVisible(btnSignUpForm, 10)
-                && isVisible(fldEmail, 10)
-                && isVisible(fldPassword, 10)
-                && isVisible(fldRepeatPassword, 10)
-                && isVisible(btnSignUp, 10);
+        return isVisible(btnLoginForm)
+                && isVisible(btnSignUpForm)
+                && isVisible(fldEmail)
+                && isVisible(fldPassword)
+                && isVisible(fldRepeatPassword)
+                && isVisible(btnSignUp);
     }
 }

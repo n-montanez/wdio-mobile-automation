@@ -22,10 +22,10 @@ public class HomeScreen extends MobileBaseScreen {
     @AndroidFindBy(uiAutomator = "text(\"Demo app for the appium-boilerplate\")")
     private WebElement lblDescription;
 
-    public boolean areAllElementsVisible(int seconds) {
-        return isVisible(homeContainer, seconds)
-                && isVisible(imgRobotLogo, seconds)
-                && isVisible(lblAppTitle, seconds)
-                && isVisible(lblDescription, seconds);
+    public boolean areAllElementsVisible() {
+        return isVisible(homeContainer)
+                && isVisible(imgRobotLogo)
+                && isVisible(lblAppTitle)
+                && isVisible(lblDescription);
     }
 }
