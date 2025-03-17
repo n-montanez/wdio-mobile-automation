@@ -33,8 +33,9 @@ public class Navbar extends MobileBaseScreen {
         return new HomeScreen(driver);
     }
 
-    public void goToWebView() {
+    public WebViewScreen goToWebView() {
         btnWebView.click();
+        return new WebViewScreen(driver);
     }
 
     public void goToLogin() {

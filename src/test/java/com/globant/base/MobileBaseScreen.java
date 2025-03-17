@@ -14,6 +14,7 @@ public class MobileBaseScreen {
 
     public MobileBaseScreen(AndroidDriver driver) {
         this.driver = driver;
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 
@@ -28,5 +29,11 @@ public class MobileBaseScreen {
         } finally {
             driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         }
+    }
+
+    public void waitForElementVisibility(WebElement element, int seconds) {
+        driver.manage().timeouts().implicitlyWait(Duration.ZERO);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(seconds));
+        wait.until(ExpectedConditions.visibilityOf(element));
     }
 }
