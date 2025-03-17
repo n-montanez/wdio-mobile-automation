@@ -28,15 +28,28 @@ public class Navbar extends MobileBaseScreen {
     @AndroidFindBy(accessibility = "Drag")
     private WebElement btnDrag;
 
-    public void goToHome() {
+    public HomeScreen goToHome() {
         btnHome.click();
+        return new HomeScreen(driver);
+    }
+
+    public void goToWebView() {
+        btnWebView.click();
     }
 
     public void goToLogin() {
         btnLogin.click();
     }
 
+    public void goToForms() {
+        btnForms.click();
+    }
+
     public void goToSwipe() {
         btnSwipe.click();
+    }
+
+    public void goToDrag() {
+        btnDrag.click();
     }
 }
