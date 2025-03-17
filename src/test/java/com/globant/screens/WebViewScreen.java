@@ -10,11 +10,11 @@ public class WebViewScreen extends MobileBaseScreen {
         super(driver);
     }
 
-    @AndroidFindBy(uiAutomator = "className(\"android.webkit.WebView\").instance(1)")
-    private WebElement webContainer;
-
     @AndroidFindBy(uiAutomator = "text(\"LOADING...\")")
     private WebElement lblLoading;
+
+    @AndroidFindBy(uiAutomator = "className(\"android.webkit.WebView\").instance(1)")
+    private WebElement webContainer;
 
     public Boolean isLoading() {
         waitForElementVisibility(lblLoading);

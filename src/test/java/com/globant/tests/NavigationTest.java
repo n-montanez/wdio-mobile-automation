@@ -31,6 +31,9 @@ public class NavigationTest extends MobileBaseTest {
 
         SwipeScreen swipeScreen = navbar.goToSwipe();
         Assert.assertTrue(swipeScreen.areAllElementsVisible());
+
+        DragScreen dragScreen = navbar.goToDrag();
+        Assert.assertTrue(dragScreen.areAllElementsVisible());
     }
 
 }
