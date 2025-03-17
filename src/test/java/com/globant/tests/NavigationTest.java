@@ -2,6 +2,7 @@ package com.globant.tests;
 
 import com.globant.base.MobileBaseTest;
 import com.globant.screens.HomeScreen;
+import com.globant.screens.LoginScreen;
 import com.globant.screens.Navbar;
 import com.globant.screens.WebViewScreen;
 import org.testng.Assert;
@@ -19,6 +20,12 @@ public class NavigationTest extends MobileBaseTest {
         WebViewScreen webViewScreen = navbar.goToWebView();
         Assert.assertTrue(webViewScreen.isLoading());
         Assert.assertTrue(webViewScreen.isContainerScrollable());
+
+        LoginScreen loginScreen = navbar.goToLogin();
+        Assert.assertTrue(loginScreen.isLoginFormVisible());
+        loginScreen.goToSignUpForm();
+        Assert.assertTrue(loginScreen.isSignUpFormVisible());
+
     }
 
 }
