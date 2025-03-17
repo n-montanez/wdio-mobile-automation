@@ -28,6 +28,9 @@ public class NavigationTest extends MobileBaseTest {
         Assert.assertFalse(formsScreen.isSwitchActive());
         formsScreen.flipSwitch();
         Assert.assertTrue(formsScreen.isSwitchActive());
+
+        SwipeScreen swipeScreen = navbar.goToSwipe();
+        Assert.assertTrue(swipeScreen.areAllElementsVisible());
     }
 
 }

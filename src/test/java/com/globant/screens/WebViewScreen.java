@@ -17,6 +17,7 @@ public class WebViewScreen extends MobileBaseScreen {
     private WebElement lblLoading;
 
     public Boolean isLoading() {
+        waitForElementVisibility(lblLoading);
         return lblLoading.isDisplayed();
     }
 

@@ -48,8 +48,9 @@ public class Navbar extends MobileBaseScreen {
         return new FormsScreen(driver);
     }
 
-    public void goToSwipe() {
+    public SwipeScreen goToSwipe() {
         btnSwipe.click();
+        return new SwipeScreen(driver);
     }
 
     public void goToDrag() {
