@@ -1,10 +1,7 @@
 package com.globant.tests;
 
 import com.globant.base.MobileBaseTest;
-import com.globant.screens.HomeScreen;
-import com.globant.screens.LoginScreen;
-import com.globant.screens.Navbar;
-import com.globant.screens.WebViewScreen;
+import com.globant.screens.*;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -25,6 +22,12 @@ public class NavigationTest extends MobileBaseTest {
         Assert.assertTrue(loginScreen.isLoginFormVisible());
         loginScreen.goToSignUpForm();
         Assert.assertTrue(loginScreen.isSignUpFormVisible());
+
+        FormsScreen formsScreen = navbar.goToForms();
+        Assert.assertTrue(formsScreen.areAllElementsVisible());
+        Assert.assertFalse(formsScreen.isSwitchActive());
+        formsScreen.flipSwitch();
+        Assert.assertTrue(formsScreen.isSwitchActive());
     }
 
 }

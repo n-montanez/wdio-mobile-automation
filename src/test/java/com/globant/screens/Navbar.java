@@ -43,8 +43,9 @@ public class Navbar extends MobileBaseScreen {
         return new LoginScreen(driver);
     }
 
-    public void goToForms() {
+    public FormsScreen goToForms() {
         btnForms.click();
+        return new FormsScreen(driver);
     }
 
     public void goToSwipe() {
