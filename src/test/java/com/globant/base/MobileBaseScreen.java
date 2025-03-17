@@ -53,4 +53,12 @@ public class MobileBaseScreen {
         wait.until(ExpectedConditions.visibilityOf(element));
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(DEFAULT_IMPLICIT));
     }
+
+
+    public void waitForAlert() {
+        driver.manage().timeouts().implicitlyWait(Duration.ZERO);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(DEFAULT_EXPLICIT));
+        wait.until(ExpectedConditions.alertIsPresent());
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(DEFAULT_IMPLICIT));
+    }
 }

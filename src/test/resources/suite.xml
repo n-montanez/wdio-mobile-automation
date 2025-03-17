@@ -8,4 +8,10 @@
             <class name="com.globant.tests.NavigationTest"/>
         </classes>
     </test>
+
+    <test name="Authentication">
+        <classes>
+            <class name="com.globant.tests.AuthenticationTest"/>
+        </classes>
+    </test>
 </suite>
