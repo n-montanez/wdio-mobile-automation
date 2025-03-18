@@ -36,4 +36,13 @@ public class AuthenticationTest extends MobileBaseTest {
                 "You successfully signed up!");
         loginScreen.acceptAlert();
     }
+
+    @Test(testName = "Successful Login", dataProvider = "userData")
+    public void logIn(String email, String password) {
+        Assert.assertTrue(loginScreen.isLoginFormVisible());
+        loginScreen.fillLogInForm(email, password);
+        Assert.assertEquals(loginScreen.getAlertText(), "Success\n" +
+                "You are logged in!");
+        loginScreen.acceptAlert();
+    }
 }

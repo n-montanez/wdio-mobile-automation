@@ -72,6 +72,12 @@ public class LoginScreen extends MobileBaseScreen {
         btnSignUp.click();
     }
 
+    public void fillLogInForm(String email, String password) {
+        fldEmail.sendKeys(email);
+        fldPassword.sendKeys(password);
+        btnLogin.click();
+    }
+
     public String getAlertText() {
         waitForAlert();
         return driver.switchTo().alert().getText();

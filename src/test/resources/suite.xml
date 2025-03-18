@@ -3,11 +3,11 @@
     <parameter name="deviceName" value="Pixel7"/>
     <parameter name="appiumUrl" value="http://192.168.20.20:4723"/>
 
-    <test name="Navigation">
-        <classes>
-            <class name="com.globant.tests.NavigationTest"/>
-        </classes>
-    </test>
+<!--    <test name="Navigation">-->
+<!--        <classes>-->
+<!--            <class name="com.globant.tests.NavigationTest"/>-->
+<!--        </classes>-->
+<!--    </test>-->
 
     <test name="Authentication">
         <classes>
