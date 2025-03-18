@@ -40,6 +40,12 @@ public class SwipeScreen extends MobileBaseScreen {
     @AndroidFindBy(uiAutomator = "resourceId(\"__CAROUSEL_ITEM_5_READY__\")")
     private WebElement carouselItem5;
 
+    @AndroidFindBy(accessibility = "WebdriverIO logo")
+    private WebElement imgRobot;
+
+    @AndroidFindBy(uiAutomator = "text(\"You found me!!!\")")
+    private WebElement lblRobotFound;
+
     public boolean areAllElementsVisible() {
         return isVisible(swipeContainer)
                 && isVisible(lblTitle)
@@ -61,5 +67,18 @@ public class SwipeScreen extends MobileBaseScreen {
 
     public void swipeCard() {
         swipe(980, 1760, 124, 1760, 200);
+    }
+
+    public void swipeDown() {
+        swipe(540, 1100, 540, 350, 100);
+    }
+
+    public boolean wasRobotFound() {
+        return isVisible(imgRobot) &&
+                isVisible(lblRobotFound);
+    }
+
+    public String getLabelRobot() {
+        return lblRobotFound.getText();
     }
 }

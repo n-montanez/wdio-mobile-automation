@@ -21,6 +21,7 @@ public class SwipeTest extends MobileBaseTest {
 
     @Test(testName = "Swipe cards horizontally")
     public void swipeCardsHorizontally() {
+        Assert.assertTrue(swipeScreen.areAllElementsVisible());
         Assert.assertEquals(swipeScreen.getVisibleCards(), List.of(0, 1));
         swipeScreen.swipeCard();
         Assert.assertEquals(swipeScreen.getVisibleCards(), List.of(1, 2));
@@ -30,5 +31,13 @@ public class SwipeTest extends MobileBaseTest {
         Assert.assertEquals(swipeScreen.getVisibleCards(), List.of(3, 4));
         swipeScreen.swipeCard();
         Assert.assertEquals(swipeScreen.getVisibleCards(), List.of(4, 5));
+    }
+
+    @Test(testName = "Swipe vertically to find robot")
+    public void findRobot() {
+        Assert.assertTrue(swipeScreen.areAllElementsVisible());
+        swipeScreen.swipeDown();
+        Assert.assertTrue(swipeScreen.wasRobotFound());
+        Assert.assertEquals(swipeScreen.getLabelRobot(), "You found me!!!");
     }
 }
