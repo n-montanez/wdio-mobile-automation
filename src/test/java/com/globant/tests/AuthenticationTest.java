@@ -12,12 +12,20 @@ public class AuthenticationTest extends MobileBaseTest {
 
     private LoginScreen loginScreen;
 
+    /**
+     * Precondition: the user should be at the Login screen
+     */
     @BeforeMethod
     public void goToLogin() {
         Navbar navbar = new Navbar(driver);
         loginScreen = navbar.goToLogin();
     }
 
+    /**
+     * User params for authentication
+     *
+     * @return user data objects
+     */
     @DataProvider(name = "userData")
     private Object[][] userData() {
         return new Object[][]{
@@ -25,6 +33,13 @@ public class AuthenticationTest extends MobileBaseTest {
         };
     }
 
+    /**
+     * Uses each data provider user to test for sign up form
+     * Fills all the form data to sign up and verifies if it was completed accepting the alert
+     *
+     * @param email    user email
+     * @param password user password
+     */
     @Test(testName = "Successful Sign Up", dataProvider = "userData")
     public void signUp(String email, String password) {
         loginScreen.goToSignUpForm();
@@ -37,6 +52,13 @@ public class AuthenticationTest extends MobileBaseTest {
         loginScreen.acceptAlert();
     }
 
+    /**
+     * Uses each data provider user to test for login form
+     * Fills all the form data to logins and verifies if it was completed accepting the alert
+     *
+     * @param email    user email
+     * @param password user password
+     */
     @Test(testName = "Successful Login", dataProvider = "userData")
     public void logIn(String email, String password) {
         Assert.assertTrue(loginScreen.isLoginFormVisible());

@@ -22,6 +22,11 @@ public class HomeScreen extends MobileBaseScreen {
     @AndroidFindBy(uiAutomator = "text(\"Demo app for the appium-boilerplate\")")
     private WebElement lblDescription;
 
+    /**
+     * Checks if key elements are visible
+     *
+     * @return whether given elements are visible within timeout or not
+     */
     public boolean areAllElementsVisible() {
         return isVisible(homeContainer)
                 && isVisible(imgRobotLogo)

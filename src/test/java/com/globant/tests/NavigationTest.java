@@ -7,6 +7,9 @@ import org.testng.annotations.Test;
 
 public class NavigationTest extends MobileBaseTest {
 
+    /**
+     * Checks for key elements visibility and interaction for each screen
+     */
     @Test(testName = "Navigation on the bottom menu bar")
     public void navigationTest() {
         Navbar navbar = new Navbar(driver);

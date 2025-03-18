@@ -12,18 +12,34 @@ import java.net.URL;
 public class MobileBaseTest {
     protected static AndroidDriver driver;
 
+    /**
+     * Creates a session before every test
+     *
+     * @param deviceName appium target device name
+     * @param appiumUrl  appium target server
+     */
     @BeforeMethod
     @Parameters({"deviceName", "appiumUrl"})
     public void setUp(String deviceName, String appiumUrl) {
         driver = createAndroidDriver(deviceName, appiumUrl);
     }
 
+    /**
+     * Closes driver session
+     */
     @AfterMethod
     public void tearDown() {
         if (driver != null)
             driver.quit();
     }
 
+    /**
+     * Initializes driver with session for android testing
+     *
+     * @param deviceName target device name
+     * @param appiumUrl  appium target server
+     * @return appium uiautomator2 driver session
+     */
     private AndroidDriver createAndroidDriver(String deviceName, String appiumUrl) {
         URL url;
         try {

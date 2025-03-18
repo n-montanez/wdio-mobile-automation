@@ -34,6 +34,11 @@ public class FormsScreen extends MobileBaseScreen {
     @AndroidFindBy(accessibility = "button-Inactive")
     private WebElement btnInactive;
 
+    /**
+     * Checks if key elements are visible
+     *
+     * @return whether given elements are visible within timeout or not
+     */
     public boolean areAllElementsVisible() {
         return isVisible(formsContainer)
                 && isVisible(lblTitle)
@@ -45,10 +50,18 @@ public class FormsScreen extends MobileBaseScreen {
                 && isVisible(btnInactive);
     }
 
+    /**
+     * Toggles switch button between on/off
+     */
     public void flipSwitch() {
         btnSwitch.click();
     }
 
+    /**
+     * Current switch option
+     *
+     * @return if switch value is on or off
+     */
     public boolean isSwitchActive() {
         return Boolean.parseBoolean(btnSwitch.getDomAttribute("checked"));
     }

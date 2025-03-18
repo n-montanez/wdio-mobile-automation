@@ -28,6 +28,11 @@ public class DragScreen extends MobileBaseScreen {
     @AndroidFindBy(accessibility = "drop-l1")
     private WebElement firstSpot;
 
+    /**
+     * Checks if key elements are visible
+     *
+     * @return whether given elements are visible within timeout or not
+     */
     public boolean areAllElementsVisible() {
         return isVisible(dragContainer)
                 && isVisible(lblTitle)

@@ -38,6 +38,11 @@ public class LoginScreen extends MobileBaseScreen {
     @AndroidFindBy(uiAutomator = "resourceId(\"android:id/content\")")
     private WebElement signUpPanel;
 
+    /**
+     * Checks if key elements are visible
+     *
+     * @return whether given elements are visible within timeout or not
+     */
     public boolean isLoginFormVisible() {
         return isVisible(btnLoginForm)
                 && isVisible(btnSignUpForm)
@@ -47,10 +52,18 @@ public class LoginScreen extends MobileBaseScreen {
                 && !isVisible(fldRepeatPassword, 1);
     }
 
+    /**
+     * Moves active form to sign up
+     */
     public void goToSignUpForm() {
         btnSignUpForm.click();
     }
 
+    /**
+     * Checks if sign up form is active
+     *
+     * @return whether key form elements are visible within timeout or not
+     */
     public boolean isSignUpFormVisible() {
         return isVisible(btnLoginForm)
                 && isVisible(btnSignUpForm)
@@ -60,11 +73,22 @@ public class LoginScreen extends MobileBaseScreen {
                 && isVisible(btnSignUp);
     }
 
+    /**
+     * Checks if password fields have password attributes
+     *
+     * @return whether fields have password attribute for security
+     */
     public boolean areFieldsPassword() {
         return Boolean.parseBoolean(fldPassword.getDomAttribute("password"))
                 && Boolean.parseBoolean(fldRepeatPassword.getDomAttribute("password"));
     }
 
+    /**
+     * Send given data in sign up form and submits
+     *
+     * @param email    user email
+     * @param password user password
+     */
     public void fillSignUpForm(String email, String password) {
         fldEmail.sendKeys(email);
         fldPassword.sendKeys(password);
@@ -72,17 +96,31 @@ public class LoginScreen extends MobileBaseScreen {
         btnSignUp.click();
     }
 
+    /**
+     * Send given data in log in form and submits
+     *
+     * @param email    user email
+     * @param password user password
+     */
     public void fillLogInForm(String email, String password) {
         fldEmail.sendKeys(email);
         fldPassword.sendKeys(password);
         btnLogin.click();
     }
 
+    /**
+     * Gets the alert window content as text
+     *
+     * @return alert title and subtitle
+     */
     public String getAlertText() {
         waitForAlert();
         return driver.switchTo().alert().getText();
     }
 
+    /**
+     * Selects positive option for alert window
+     */
     public void acceptAlert() {
         waitForAlert();
         driver.switchTo().alert().accept();

@@ -46,12 +46,22 @@ public class SwipeScreen extends MobileBaseScreen {
     @AndroidFindBy(uiAutomator = "text(\"You found me!!!\")")
     private WebElement lblRobotFound;
 
+    /**
+     * Checks if key elements are visible
+     *
+     * @return whether given elements are visible within timeout or not
+     */
     public boolean areAllElementsVisible() {
         return isVisible(swipeContainer)
                 && isVisible(lblTitle)
                 && isVisible(carousel);
     }
 
+    /**
+     * Finds current displayed cards
+     *
+     * @return indexes of visible cards
+     */
     public List<Integer> getVisibleCards() {
         List<WebElement> cards = List.of(carouselItem0, carouselItem1, carouselItem2, carouselItem3, carouselItem4, carouselItem5);
         List<Integer> indexes = new ArrayList<>();
@@ -65,19 +75,35 @@ public class SwipeScreen extends MobileBaseScreen {
         return indexes;
     }
 
+    /**
+     * Swipes horizontally to next card
+     */
     public void swipeCard() {
         swipe(980, 1760, 124, 1760, 200);
     }
 
+    /**
+     * Swipes vertically to screen bottom
+     */
     public void swipeDown() {
         swipe(540, 1100, 540, 350, 100);
     }
 
+    /**
+     * Checks if robot image is visible at screen bottom
+     *
+     * @return if robot image is shown
+     */
     public boolean wasRobotFound() {
         return isVisible(imgRobot) &&
                 isVisible(lblRobotFound);
     }
 
+    /**
+     * Gets the text of the label found at screen bottomw
+     *
+     * @return label under robot image
+     */
     public String getLabelRobot() {
         return lblRobotFound.getText();
     }

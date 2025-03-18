@@ -13,12 +13,19 @@ public class SwipeTest extends MobileBaseTest {
 
     private SwipeScreen swipeScreen;
 
+    /**
+     * Precondition: the user should be at the Swipe screen
+     */
     @BeforeMethod
     public void goToSwipe() {
         Navbar navbar = new Navbar(driver);
         swipeScreen = navbar.goToSwipe();
     }
 
+    /**
+     * Checks that swipe reveals new cards and old cards are hidden
+     * Indexes shown in lists are those of expected cards to be visible
+     */
     @Test(testName = "Swipe cards horizontally")
     public void swipeCardsHorizontally() {
         Assert.assertTrue(swipeScreen.areAllElementsVisible());
@@ -33,6 +40,9 @@ public class SwipeTest extends MobileBaseTest {
         Assert.assertEquals(swipeScreen.getVisibleCards(), List.of(4, 5));
     }
 
+    /**
+     * Swipes vertically to screen bottom and checks the target robot element
+     */
     @Test(testName = "Swipe vertically to find robot")
     public void findRobot() {
         Assert.assertTrue(swipeScreen.areAllElementsVisible());
